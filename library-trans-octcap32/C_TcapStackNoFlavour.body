@@ -17,6 +17,7 @@
  *
  */
 
+#include <cstring>
 #include "dlfcn_t.hpp"
 #include "iostream_t.hpp"
 #include "Utils.hpp"

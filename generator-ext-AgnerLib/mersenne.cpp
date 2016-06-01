@@ -32,6 +32,8 @@ void TRandomMersenne::RandomInit(uint32 seed) {
 
   // detect computer architecture
   union {double f; uint32 i[2];} convert;
+  convert.i[0] = 0;
+  convert.i[1] = 0;
   convert.f = 1.0;
   // Note: Old versions of the Gnu g++ compiler may make an error here,
   // compile with the option  -fenum-int-equiv  to fix the problem

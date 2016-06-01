@@ -19,8 +19,8 @@
 #ifndef _SOCKETSCTP_T_HPP
 #define _SOCKETSCTP_T_HPP
 
-#include <sctp.h>
-#include <ext_socket.h>
+#include <netinet/sctp.h>
+//#include <ext_socket.h>
 
 #ifndef AF_INET6
 #define USE_IPV4_ONLY

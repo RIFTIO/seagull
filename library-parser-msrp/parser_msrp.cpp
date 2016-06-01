@@ -17,6 +17,7 @@
  *
  */
 
+#include <cstring>
 #include "parser_msrp.hpp"
 #include "iostream_t.hpp"
 #include <regex.h>

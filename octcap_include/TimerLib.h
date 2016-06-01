@@ -346,7 +346,7 @@ extern "C" {
 	 *
 	 * The user is using SIGALM to get timeofday. So we point our timeofday
 	 * var pointer to the user's one.  For using SIGALM, either with
-	 * timerlib in control or user in control.
+	 * timerwlib in control or user in control.
 	 *
 	 * This function does not take any "module" parameter, since the only
 	 * TimerLib module SIGALM can operate on is the default per-thread

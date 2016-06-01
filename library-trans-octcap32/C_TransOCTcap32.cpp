@@ -17,6 +17,7 @@
  *
  */
 
+#include <cstring>
 #include "C_TransOCTcap32.hpp"
 #include "Utils.hpp"
 

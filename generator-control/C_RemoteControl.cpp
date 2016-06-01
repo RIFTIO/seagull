@@ -191,7 +191,7 @@ void  C_RemoteControl::init() {
 T_GeneratorError C_RemoteControl::InitProcedure() {
   T_GeneratorError L_error_code = E_GEN_NO_ERROR ;
   int              L_ret ;
-  int              L_open_id ;
+  //int              L_open_id ;
   C_TransportControl::T_TransportContext  L_context ;
   T_SelectDef              L_select ;
 
@@ -271,9 +271,9 @@ T_GeneratorError C_RemoteControl::InitProcedure() {
       L_error_code = E_GEN_FATAL_ERROR ;
     }
 
-    L_open_id = m_transport->open(10,m_address,
-                                  &L_status,
-                                  m_protocol_frame) ;
+    m_transport->open(10,m_address,
+                      &L_status,
+                      m_protocol_frame) ;
     if (L_status != E_OPEN_OK) {
       L_error_code = E_GEN_FATAL_ERROR ;
     }
@@ -284,7 +284,7 @@ T_GeneratorError C_RemoteControl::InitProcedure() {
 }
 
 T_GeneratorError C_RemoteControl::TaskProcedure() {
-  T_GeneratorError L_error_code ;
+  T_GeneratorError L_error_code = E_GEN_NO_ERROR;
   
   while (M_state != C_TaskControl::E_STATE_STOPPED ) {
     L_error_code = receiveControl() ;
@@ -341,7 +341,7 @@ T_GeneratorError C_RemoteControl::receiveControl () {
 
 
   T_pC_TransportEvent       L_event_occured        ;
-  int                       L_event_id             ;
+  //int                       L_event_id             ;
 
   GEN_DEBUG(1, "C_RemoteControl::receiveControl() start");
   
@@ -412,16 +412,16 @@ T_GeneratorError C_RemoteControl::receiveControl () {
       
       for (L_i = 0 ; L_i < L_nb_event ; L_i++) {
         L_event_occured = &m_events [L_i];
-        L_event_id      = L_event_occured->m_id ;
+        
         
         switch (L_event_occured->m_type) {
           
         case C_TransportEvent::E_TRANS_RECEIVED: {
           
           GEN_DEBUG(1, "C_RemoteControl::receiveControl() event");
-          GEN_DEBUG(1, 
-                    "C_RemoteControl::receiveControl() E_TRANS_RECEIVED id ["
-                    << L_event_id << "]");
+          // GEN_DEBUG(1, 
+          //           "C_RemoteControl::receiveControl() E_TRANS_RECEIVED id ["
+          //           << L_event_id << "]");
           while ((m_transport
                   ->get_message(L_event_occured->m_id, &L_currentRcvCtxt)) == true) {
             m_msg_remote_list -> push_back (L_currentRcvCtxt) ;
@@ -430,22 +430,22 @@ T_GeneratorError C_RemoteControl::receiveControl () {
         }
         
         case C_TransportEvent::E_TRANS_CLOSED: {
-          GEN_DEBUG(1, "C_RemoteControl::receiveControl() E_TRANS_CLOSED id["
-                    << L_event_id << "]");
+          // GEN_DEBUG(1, "C_RemoteControl::receiveControl() E_TRANS_CLOSED id["
+          //           << L_event_id << "]");
           break ;
         }
         
         case C_TransportEvent::E_TRANS_CONNECTION: {
-          GEN_DEBUG(1, 
-                    "C_ReadControl::receiveControl() E_TRANS_CONNECTION id["
-                    << L_event_id << "]");
+          // GEN_DEBUG(1, 
+          //           "C_ReadControl::receiveControl() E_TRANS_CONNECTION id["
+          //           << L_event_id << "]");
           break ;
         }
         
         case C_TransportEvent::E_TRANS_OPEN: {
-          GEN_DEBUG(1, 
-                    "C_ReadControl::receiveControl() E_TRANS_OPEN id ["
-                    << L_event_id << "]");
+          // GEN_DEBUG(1, 
+          //           "C_ReadControl::receiveControl() E_TRANS_OPEN id ["
+          //           << L_event_id << "]");
         }
         
         default :
@@ -520,7 +520,7 @@ void C_RemoteControl::createRampThread(unsigned long P_duration,
                                        unsigned long P_sub_rate,
                                        bool          P_increase) {
   // create thread
-  pthread_t              *L_rampThread = NULL;
+  //pthread_t              *L_rampThread = NULL;
   C_RampControl          *L_rampCtrl ;
 
   NEW_VAR(L_rampCtrl, C_RampControl(m_gen));
@@ -529,7 +529,7 @@ void C_RemoteControl::createRampThread(unsigned long P_duration,
                    P_sub_rate,
                    P_increase);
   
-  L_rampThread = start_thread_control(L_rampCtrl);
+  start_thread_control(L_rampCtrl);
 }
 
 void C_RemoteControl::quit() {

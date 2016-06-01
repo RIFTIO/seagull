@@ -18,6 +18,7 @@
  */
 
 
+#include <cstring>
 #include "TextUtils.hpp"
 #include "Utils.hpp"
 #include "string_t.hpp"

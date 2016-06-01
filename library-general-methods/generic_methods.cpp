@@ -23,6 +23,7 @@
 #include "string_t.hpp"
 #include "Utils.hpp"
 #include <time.h>
+#include <cstring>
 
 
 char* external_find_text_value (char *P_buf, char *P_field) {

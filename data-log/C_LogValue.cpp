@@ -16,7 +16,7 @@
  * (c)Copyright 2006 Hewlett-Packard Development Company, LP.
  *
  */
-
+#include <cstring>
 #include "C_LogValue.hpp"
 #include "Utils.hpp"
 #include "string_t.hpp"

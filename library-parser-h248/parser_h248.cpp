@@ -17,6 +17,7 @@
  *
  */
 
+#include <cstring>
 #include "parser_h248.hpp"
 #include "iostream_t.hpp"
 #include <regex.h>

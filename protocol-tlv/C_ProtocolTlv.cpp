@@ -2426,7 +2426,7 @@ int C_ProtocolTlv::get_header_body_values_from_xml (C_XmlData *P_def) {
 
   int                       L_ret = 0 ;
   C_XmlData                *L_data    ;
-  char                     *L_value, *L_name, *L_type, *L_endstr ;
+  char                     *L_value, *L_name = NULL, *L_type, *L_endstr ;
   char                     *L_fieldName, *L_fieldValue ;
   T_XmlData_List::iterator  L_listIt, L_listFieldIt  ;
   T_pXmlData_List           L_subListDefine, L_subListSetField ;
@@ -3230,7 +3230,7 @@ int  C_ProtocolTlv::decode_header (unsigned char     **P_buf,
   long                  L_current_type_id;
   T_DecodeMap::iterator L_decodeIt ;
   int                   L_ret = 0 ;
-  int                   L_headerId ;
+  int                   L_headerId = 0;
   unsigned long         L_size     ;
   C_ProtocolContext    *L_ctxt_protocol = P_ctxt_protocol ;
 
@@ -3420,13 +3420,13 @@ int C_ProtocolTlv::decode_body(unsigned char     **P_buf,
   int                   L_ret = 0 ;
 
   T_pHeaderField        L_body_fieldDescr   ;
-  T_pHeaderBodyValue    L_body_fieldValues  ;
+  T_pHeaderBodyValue    L_body_fieldValues  = NULL ;
 
   unsigned long         L_body_fieldIdx, L_current_size, L_current_value ;
   unsigned long         L_data_size, L_data_type, L_padding ;
 
   T_DecodeMap::iterator L_decodeIt ;
-  int                   L_body_value_id ;
+  int                   L_body_value_id  = 0;
   int                   L_type_id ;
   T_TypeType            L_type ;
   int                   L_nbValDec = 0 ;
@@ -4062,7 +4062,7 @@ C_ProtocolFrame::T_MsgError C_ProtocolTlv::encode_body (int            P_nbVal,
   int                L_valueIdx     ;
   size_t             L_total_size   = 0 ;
   size_t             L_current_size = 0 ;
-  T_pHeaderField     L_body_fieldDescr   ;
+  //T_pHeaderField     L_body_fieldDescr   ;
   T_pHeaderBodyValue L_body_fieldValues  ;
   T_pBodyValue       L_body_val ;
   unsigned long      L_body_fieldIdx, L_valueSize  ;
@@ -4173,7 +4173,7 @@ C_ProtocolFrame::T_MsgError C_ProtocolTlv::encode_body (int            P_nbVal,
 	  L_body_fieldIdx < m_max_nb_field_header_body; 
 	  L_body_fieldIdx++) {
 
-	L_body_fieldDescr = &m_header_body_field_table[L_body_fieldIdx];
+	
 	if (L_body_fieldValues->m_value_setted[L_body_fieldIdx] == true) {
 
           L_current_size = L_body_fieldValues->m_size[L_body_fieldIdx] ;
@@ -6969,7 +6969,7 @@ C_ProtocolFrame::T_MsgError C_ProtocolTlv::encode_body_without_stat (int        
   int                L_valueIdx     ;
   size_t             L_total_size   = 0 ;
   size_t             L_current_size = 0 ;
-  T_pHeaderField     L_body_fieldDescr   ;
+  //T_pHeaderField     L_body_fieldDescr   ;
   T_pHeaderBodyValue L_body_fieldValues  ;
   T_pBodyValue       L_body_val ;
   unsigned long      L_body_fieldIdx, L_valueSize  ;
@@ -7074,7 +7074,7 @@ C_ProtocolFrame::T_MsgError C_ProtocolTlv::encode_body_without_stat (int        
 	  L_body_fieldIdx < m_max_nb_field_header_body; 
 	  L_body_fieldIdx++) {
 
-	L_body_fieldDescr = &m_header_body_field_table[L_body_fieldIdx];
+	
 	if (L_body_fieldValues->m_value_setted[L_body_fieldIdx] == true) {
 
           L_current_size = L_body_fieldValues->m_size[L_body_fieldIdx] ;

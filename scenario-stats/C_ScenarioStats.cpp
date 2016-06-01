@@ -43,13 +43,13 @@
 	printf("| %-24s | %23s | %23s |\r\n", (T1), (T2), (T3))
 
 #define MAX_CHAR_BUFFER_SIZE          256
-#define MAX_DATA_BUFFER_SIZE          4096
+#define MAX_DATA_BUFFER_SIZE          10 * (1024 * 1024)
 static const char* COMMAND_SEPARATOR = "#" ;
 
 
 C_ScenarioStats::C_ScenarioStats(C_Scenario *P_scen) {
 
-  int              L_i ;
+  int              L_i ;                   
   char            *L_name ;
 
   // extract ethe end of scenario

@@ -17,6 +17,7 @@
  *
  */
 
+#include <cstring>
 #include "C_ProtocolStats.hpp"
 
 #define max(a,b) ((a)>(b)) ? (a) : (b)
@@ -40,7 +41,7 @@
 
 
 #define MAX_CHAR_BUFFER_SIZE          256
-#define MAX_DATA_BUFFER_SIZE          4096
+#define MAX_DATA_BUFFER_SIZE          10 * (1024 * 1024) //10kb
 static const char* COMMAND_SEPARATOR = "#" ;
 
 C_ProtocolStats::C_ProtocolStats(C_ProtocolFrame *P_protocol)

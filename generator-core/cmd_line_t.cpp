@@ -17,7 +17,7 @@
  *
  */
 
-
+#include <cstring>
 #include "cmd_line_t.hpp"
 #include "Utils.hpp"
 #include "string_t.hpp"

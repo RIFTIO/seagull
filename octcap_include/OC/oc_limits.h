@@ -30,7 +30,7 @@
 #else  /* !__KERNEL__ */
 # include <limits.h>		/* ANSI C */
 # include <sys/param.h>
-# include <asm/page.h>		/* PAGE_SIZE */
+//# include <asm/page.h>		/* PAGE_SIZE */
 #endif /* !__KERNEL__ */
 
 #elif defined(__hpux)

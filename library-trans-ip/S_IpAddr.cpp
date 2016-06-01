@@ -17,6 +17,7 @@
  *
  */
 
+#include <cstring>
 #include "S_IpAddr.hpp"
 
 #include "Utils.hpp"

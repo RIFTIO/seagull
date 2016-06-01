@@ -16,7 +16,7 @@
  * (c)Copyright 2006 Hewlett-Packard Development Company, LP.
  *
  */
-
+#include <cstring>
 #include "C_TransIP.hpp"
 #include "Utils.hpp"
 
@@ -73,10 +73,10 @@
 (*m_logInfo)(L_msg); \
 }
 
-#define DEFAULT_BUFFER_SIZE 65535
+#define DEFAULT_BUFFER_SIZE 10 * (1024 * 1024)
 
-#define DEFAULT_DECODE_BUFFER_SIZE 4096
-#define DEFAULT_ENCODE_BUFFER_SIZE 4096
+#define DEFAULT_DECODE_BUFFER_SIZE DEFAULT_BUFFER_SIZE
+#define DEFAULT_ENCODE_BUFFER_SIZE DEFAULT_BUFFER_SIZE
 #define DEFAULT_READ_BUFFER_SIZE   1024
 
 

@@ -182,6 +182,8 @@ then
   echo " "
   echo "[Begin Clean Forced phase]"
   (make -f Makefile-generic.mk clean "WORK_DIR="${BUILD_WORK} "BUILD_DIR="${BUILD_BUILD} "BUILD_NAME="${BUILD_NAME} "EXT_BUILD_DIR="${EXT_DIR} "CURRENT_DIR="${BUILD_DIRECTORY} "DEBUG_MODE="${DEBUG_MODE} && echo "[End Makefile generation phase OK]")
+  rc=$?
+  [ $rc != 0 ] && exit $rc
 
   # set the target to all now
   BUILD_TARGET=all
@@ -191,6 +193,8 @@ fi
 echo " "
 echo "[Begin Makefile generation phase]"
 (make -f Makefile-generic.mk ${BUILD_TARGET} "WORK_DIR="${BUILD_WORK} "BUILD_DIR="${BUILD_BUILD} "BUILD_NAME="${BUILD_NAME} "EXT_BUILD_DIR="${EXT_DIR} "CURRENT_DIR="${BUILD_DIRECTORY} "DEBUG_MODE="${DEBUG_MODE} && echo "[End Makefile generation phase OK]")
+rc=$?
+[ $rc != 0 ] && exit $rc
 
 # Now determine the real target
 # in case of distributation  change the target
@@ -204,6 +208,8 @@ then
     echo " "
     echo "[Begin compilation phase]"
     (make -f ${BUILD_WORK}/project.mk ${BUILD_TARGET} "WORK_DIR="${BUILD_WORK} "BUILD_DIR="${BUILD_BUILD} "BUILD_NAME="${BUILD_NAME} && echo "[End compilation phase OK]" )
+    rc=$?
+    [ $rc != 0 ] && exit $rc
 fi
 
 echo " "

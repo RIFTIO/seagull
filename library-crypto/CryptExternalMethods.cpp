@@ -17,6 +17,7 @@
  *
  */
 
+#include <cstring>
 #include "CryptExternalMethods.hpp"
 #include "Utils.hpp"
 #include "string_t.hpp"

@@ -20,6 +20,7 @@
 #include "C_RegExp.hpp"
 #include "string_t.hpp"
 #include "Utils.hpp"
+#include <cstring>
 
 #define MAX_MATCH 10
 

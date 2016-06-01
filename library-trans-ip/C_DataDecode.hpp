@@ -20,6 +20,8 @@
 #ifndef _CDATADECODE_H_
 #define _CDATADECODE_H_
 
+#include <cstdlib>
+
 #include "list_t.hpp"
 #include "map_t.hpp"
 
