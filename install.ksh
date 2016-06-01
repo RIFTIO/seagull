@@ -23,15 +23,18 @@
 #
 # Command definitions
 
+INSTALL_ROOT=$1
+
 # Copy binaries
-cp bin/* /usr/local/bin/
+mkdir -p $INSTALL_ROOT/usr/local/bin/
+cp bin/* $INSTALL_ROOT/usr/local/bin/
 
 # Create shared directories
-mkdir -p /opt/seagull
+mkdir -p $INSTALL_ROOT/opt/seagull
 
 # Copy execution environments
-cp -R exe-env/* /opt/seagull/
+cp -R exe-env/* $INSTALL_ROOT/opt/seagull/
 
 # Copy remote control dictionary
-mkdir -p /opt/seagull/config
-cp generator-control/remote-ctrl.xml /opt/seagull/config/
+mkdir -p $INSTALL_ROOT/opt/seagull/config
+cp generator-control/remote-ctrl.xml $INSTALL_ROOT/opt/seagull/config/
