@@ -161,7 +161,7 @@ void C_KeyboardControl::execute_cmd(char P_char) {
     system_configuration() ;
     fprintf(stderr, "Command: ");
     memset(L_command, '\0', 100);
-    read(0, L_command, 100);
+    int i = read(0, L_command, 100); (void)i;  // Ignore the return from read()
     controller_configuration();
     m_gen->pause_display() ;
     analyze_cmd(L_command) ;
